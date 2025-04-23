@@ -1,0 +1,24 @@
+[manifest]
+version = '0.0.0'
+dump_lua = true
+priority = 0
+
+[[patches]]
+[patches.pattern]
+target = 'functions/UI_definitions.lua'
+pattern = '''{n=G.UIT.T, config={text = ' '..localize(handname,'poker_hands'), scale = 0.45, colour = G.C.UI.TEXT_LIGHT, shadow = true}}'''
+position = 'at'
+match_indent = true
+overwrite = true
+payload = '''
+                      {n=G.UIT.O, config={object = DynaText({string = {{ref_table = {x = ' '..localize(handname, 'poker_hands')}, ref_value = 'x'}}, font = handname == 'smo_Triple Horse' and G.LANGUAGES['zh_CN'].font or nil, colours = {G.C.UI.TEXT_LIGHT},shadow = true, rotate = true, scale = 0.45}),id = 'discard_UI_count'}}
+'''
+
+[[patches]]
+[patches.pattern]
+target = 'functions/UI_definitions.lua'
+pattern = ''' local card = Card(0,0, 0.5*G.CARD_W, 0.5*G.CARD_H, G.P_CARDS[v[1]], G.P_CENTERS.c_base) '''
+position = 'at'
+match_indent = true
+overwrite = true
+payload = ''' local card = Card(0,0, 0.5*G.CARD_W, 0.5*G.CARD_H, G.P_CARDS[v[1]], v.enhancement or G.P_CENTERS.c_base) '''
