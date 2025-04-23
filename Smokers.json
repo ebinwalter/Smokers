@@ -1,0 +1,12 @@
+{
+  "id": "Smokers",
+  "name": "Smokers",
+  "author": ["The Arrow Smashers"],
+  "description": "The definitive Arrow Smashers mod",
+  "prefix": "smo",
+  "main_file": "Smokers.lua",
+  "version": "1.0.0",
+  "conflicts": [
+    "Lovely (<<0.7.1)"
+  ]
+}
